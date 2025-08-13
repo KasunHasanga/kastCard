@@ -19,8 +19,8 @@ class CardPage extends StatefulWidget {
 
 class _CardPageState extends State<CardPage> {
   late CardController cardController;
-  bool isLightModeSelected = false;
-  bool isAuto = false;
+
+  bool isOperationSelected = true;
 
   @override
   void initState() {
@@ -116,8 +116,92 @@ class _CardPageState extends State<CardPage> {
                 padding: 20,
               ),
 
+
+              Container(
+                padding: EdgeInsets.all(15),
+                margin: EdgeInsets.only(bottom: 10),
+
+                decoration: BoxDecoration(
+                  color: AppColors.kTextWhite,
+
+                ),
+
+                child: Row(
+                  children: [
+
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: (){
+                          setState(() {
+                            isOperationSelected =true;
+                          });
+                        },
+                        child: SizedBox(
+                          width: double.infinity, // Take full width
+                          child: Stack(
+                            children: [
+                              Text(
+                                "Operations",
+                                style:isOperationSelected?  AppFonts.styleWithGilroySemiBoldText(
+                                    color: AppColors.kAppColor03,
+                                    fSize: FontSizeValue.fontSize18):AppFonts.styleWithGilroyRegularText(
+                                    color: AppColors.kAppColor03,
+                                    fSize: FontSizeValue.fontSize18),
+                              ),
+                              Positioned(
+                                bottom: 0,
+                                left: 0,
+                                right: 0,
+                                child: Container(
+                                  height: 3,
+                                  color:isOperationSelected? AppColors.kAppColor03:Colors.transparent,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 5,),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: (){
+                          setState(() {
+                            isOperationSelected =false;
+                          });
+                        },
+                        child: SizedBox(
+                          width: double.infinity, // Take full width
+                          child: Stack(
+                            children: [
+                              Text(
+                                "History",
+                                style:!isOperationSelected?  AppFonts.styleWithGilroySemiBoldText(
+                                    color: AppColors.kAppColor03,
+                                    fSize: FontSizeValue.fontSize18):AppFonts.styleWithGilroyRegularText(
+                                    color: AppColors.kAppColor03,
+                                    fSize: FontSizeValue.fontSize18),
+                              ),
+                              Positioned(
+                                bottom: 0,
+                                left: 0,
+                                right: 0,
+                                child: Container(
+                                  height: 3,
+                                  color:!isOperationSelected? AppColors.kAppColor03:Colors.transparent, // underline color
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    )
+
+                  ],
+                ),
+              ),
               ///need page view
-              Padding(
+              isOperationSelected?    Padding(
                 padding: const EdgeInsets.only(left: 15, right: 15),
                 child: Column(children: [
                   CardOperationRowWidget(
@@ -137,7 +221,7 @@ class _CardPageState extends State<CardPage> {
                     iconData: Icons.credit_card,
                   ),
                 ]),
-              ),
+              ):Container(),
             ],
           ),
         ));
