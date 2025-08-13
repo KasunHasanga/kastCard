@@ -1,8 +1,9 @@
 
-# Flutter GetX Starter
+# Flutter GetX Starter - Kast
+<img width="647" height="647" alt="sss" src="https://github.com/user-attachments/assets/d6421872-7b96-432a-a593-53eda6a5ab83" />
 
-Welcome to the Flutter GetX Starter project! This is some basic architecture that I used to small to medium size flutter project. And also this
-repository will be good for beginners to get robust starting point for your Flutter applications, leveraging the power of GetX for state management, dependency injection, and route management. Below, you'll find a comprehensive guide to the features and setup instructions to get your application up and running.
+Welcome to the Flutter kast project! This is some basic architecture that I used to small to medium size flutter project. And also, this
+repository will be good for beginners to get robust starting point for your Flutter applications, leveraging the power of GetX for state management, dependency injection, and route management. 
 
 ## Features
 
@@ -64,14 +65,6 @@ To run the application, follow these steps:
       fvm flutter run -t lib/main_development.dart --flavor development
       ```
 
-## Contributing
-
-We welcome contributions to enhance this starter project. If you have suggestions or improvements, please create an issue or submit a pull request.
-
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-Thank you for using the Flutter GetX Starter! We hope this project helps you kickstart your Flutter applications with ease. Happy coding!
