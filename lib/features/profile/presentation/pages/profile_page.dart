@@ -110,9 +110,7 @@ class _ProfilePageState extends State<ProfilePage> {
               AppButton(
                 backgroundColor: AppColors.kPrimary,
                 title: "log_out".tr,
-                action: () {
-
-                },
+                action: () {},
               ),
               const SizedBox(
                 height: 20,

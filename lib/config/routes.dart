@@ -1,6 +1,8 @@
 import 'package:flutter_getx_starter/features/dashboard/dashboard_binding.dart';
 import 'package:get/get.dart';
 
+import '../features/card/card_binding.dart';
+import '../features/card/presentation/pages/card_page.dart';
 import '../features/dashboard/presentation/pages/dashboard_page.dart';
 import '../features/home/home_page_binding.dart';
 import '../features/home/presentation/pages/home_page.dart';
@@ -16,7 +18,6 @@ class Routers {
         name: SplashPage.routeName,
         page: () => const SplashPage(),
         bindings: [OnBoardingBinding()]),
-
 
     //Dashboard
     GetPage(
@@ -35,5 +36,11 @@ class Routers {
         name: ProfilePage.routeName,
         page: () => const ProfilePage(),
         bindings: [ProfileBinding()]),
+
+    //Card
+    GetPage(
+        name: CardPage.routeName,
+        page: () => const CardPage(),
+        bindings: [CardBinding()]),
   ];
 }

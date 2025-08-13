@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../config/colors.dart';
+import '../../../card/presentation/pages/card_page.dart';
 import '../../../home/presentation/pages/home_page.dart';
 import '../../../profile/presentation/pages/profile_page.dart';
 import '../controller/dashboard_controller.dart';
@@ -35,39 +36,38 @@ class _DashboardPageState extends State<DashboardPage> {
         children: [
           IndexedStack(
             index: _selectedIndex,
-            children: const [
+            children: [
               HomePage(),
-              Center(child: Text('Explore')), // Replace with your Explore page
-              Center(child: Text('Add')), // This is for the add button
-              Center(
-                  child: Text('Favorites')), // Replace with your Favorites page
+              Container(),
+              Container(),
+              Container(),
               ProfilePage(),
             ],
           ),
-
-
         ],
       ),
       extendBody: true,
-      floatingActionButton:
-          GestureDetector(
-            onTap:()=> _onItemTapped(2),
-              child: Container(height: 60,width: 60,
-                decoration: BoxDecoration(
-
-                  color: AppColors.kAppColor01,
-                  borderRadius: BorderRadius.all(Radius.circular(50)),
-                ),
-                child: const Icon(Icons.credit_card),
-
-              )),
-
-
+      floatingActionButton: GestureDetector(
+          onTap: () {
+            Get.toNamed(
+              CardPage.routeName,
+            );
+            _onItemTapped(0);
+          },
+          child: Container(
+            height: 60,
+            width: 60,
+            decoration: BoxDecoration(
+              color: AppColors.kAppColor01,
+              borderRadius: BorderRadius.all(Radius.circular(50)),
+            ),
+            child: const Icon(Icons.credit_card),
+          )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         height: 60,
-        shadowColor:AppColors.kAppColor02,
+        shadowColor: AppColors.kAppColor02,
         color: AppColors.kThemeBackgroundLight,
         shape: const CircularNotchedRectangle(),
         notchMargin: 5,
@@ -76,42 +76,46 @@ class _DashboardPageState extends State<DashboardPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             IconButton(
-              icon:  Icon(
+              icon: Icon(
                 Icons.apps,
-                color:_selectedIndex==0? AppColors.kAppColor01:AppColors.kAppColor02,
+                color: _selectedIndex == 0
+                    ? AppColors.kAppColor01
+                    : AppColors.kAppColor02,
               ),
-              onPressed:()=> _onItemTapped(0),
+              onPressed: () => _onItemTapped(0),
             ),
             IconButton(
-              icon:  Icon(
+              icon: Icon(
                 Icons.messenger,
-                color:_selectedIndex==1? AppColors.kAppColor01:AppColors.kAppColor02,
+                color: _selectedIndex == 1
+                    ? AppColors.kAppColor01
+                    : AppColors.kAppColor02,
               ),
-              onPressed:()=> _onItemTapped(1),
+              onPressed: () => _onItemTapped(1),
             ),
             IconButton(
-              icon:  Icon(
+              icon: Icon(
                 Icons.notifications,
-                color:_selectedIndex==3? AppColors.kAppColor01:AppColors.kAppColor02,
-
+                color: _selectedIndex == 3
+                    ? AppColors.kAppColor01
+                    : AppColors.kAppColor02,
               ),
-              onPressed:()=> _onItemTapped(3),
+              onPressed: () => _onItemTapped(3),
             ),
             IconButton(
-              icon:  Icon(
+              icon: Icon(
                 Icons.account_circle_rounded,
-                color:_selectedIndex==4? AppColors.kAppColor01:AppColors.kAppColor02,
-
+                color: _selectedIndex == 4
+                    ? AppColors.kAppColor01
+                    : AppColors.kAppColor02,
               ),
-              onPressed:()=> _onItemTapped(4),
+              onPressed: () => _onItemTapped(4),
             ),
           ],
         ),
       ),
     );
   }
-
-
 
   void _onItemTapped(int index) {
     setState(() {
