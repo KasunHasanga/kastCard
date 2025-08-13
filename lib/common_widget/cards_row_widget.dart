@@ -25,11 +25,15 @@ class CardsRowWidget extends StatelessWidget {
             padding: EdgeInsets.all(4),
             decoration: BoxDecoration(
               color: AppColors.kAppColor01.withOpacity(0.2),
-              borderRadius: BorderRadius.all(Radius.circular(4)),
+              borderRadius: BorderRadius.all(Radius.circular(8)),
             ),
-            child: Icon(
-              iconData,
-              color: Theme.of(context).colorScheme.onSurface,
+            child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Icon(
+                iconData,
+                size: 18,
+                color: AppColors.kAppColor01,
+              ),
             )),
         SizedBox(
           width: 10,

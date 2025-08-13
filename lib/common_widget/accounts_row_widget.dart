@@ -10,8 +10,6 @@ class AccountsRowWidget extends StatelessWidget {
     super.key,
     this.iconData = Icons.person,
     this.showDropdown = false,
-
-
     required this.title,
   });
   final IconData iconData;
@@ -19,39 +17,44 @@ class AccountsRowWidget extends StatelessWidget {
   final bool showDropdown;
   final String title;
 
-
-
   @override
   Widget build(BuildContext context) {
-
-      return      Padding(
-        padding: EdgeInsets.only(top: 15),
-        child: Row(
-          children: [
-            Container(
-                padding: EdgeInsets.all(4),
-                decoration: BoxDecoration(
-
-                  color: AppColors.kAppColor01.withOpacity(0.2),
-                  borderRadius: BorderRadius.all(Radius.circular(4)),
+    return Padding(
+      padding: EdgeInsets.only(top: 15),
+      child: Row(
+        children: [
+          Container(
+              padding: EdgeInsets.all(4),
+              decoration: BoxDecoration(
+                color: AppColors.kAppColor01.withOpacity(0.2),
+                borderRadius: BorderRadius.all(Radius.circular(8)),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Icon(
+                  iconData,
+                  size: 18,
+                  color: AppColors.kAppColor01,
                 ),
-
-                child: Icon(iconData,color: Theme.of(context).colorScheme.onSurface,)),
-            SizedBox(width: 10,),
-
-            Text(
-              title.tr,
-              style: AppFonts.styleWithGilroyRegularText(
-                  color: Theme.of(context).colorScheme.onSurface,
-                  fSize: FontSizeValue.fontSize14),
-            ),
-            Spacer(),
-
-            showDropdown?  Icon(Icons.keyboard_arrow_down,color: AppColors.kAppColor01,):Container()
-          ],
-        ),
-      );
-
-
+              )),
+          SizedBox(
+            width: 10,
+          ),
+          Text(
+            title.tr,
+            style: AppFonts.styleWithGilroyRegularText(
+                color: Theme.of(context).colorScheme.onSurface,
+                fSize: FontSizeValue.fontSize14),
+          ),
+          Spacer(),
+          showDropdown
+              ? Icon(
+                  Icons.keyboard_arrow_down,
+                  color: AppColors.kAppColor01,
+                )
+              : Container()
+        ],
+      ),
+    );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getx_starter/common_widget/app_button.dart';
 import 'package:get/get.dart';
@@ -44,12 +45,23 @@ class _HomePageState extends State<HomePage> {
               excludeHeaderSemantics: true,
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Icon(Icons.person),
+                  CircleAvatar(
+                    radius: 20,
+                    backgroundColor: Colors.blueGrey.shade100,
+                    child: Container(
+                      clipBehavior: Clip.antiAlias,
+                      decoration: const BoxDecoration(shape:
+                      BoxShape.circle),
+                      child:  CachedNetworkImage(
+                    imageUrl: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                      ),
+                    ),
+                  ),
                   Icon(
                     Icons.search,
-                    color: Theme.of(context).colorScheme.onSurface,
+                    color: AppColors.kTextWhite
                   )
                 ],
               ),
@@ -136,26 +148,53 @@ class _HomePageState extends State<HomePage> {
                       child: Column(children: [
                         AccountsRowWidget(
                             title: '34234234-3423434-343423-4324',
-                            iconData: Icons.person,
+                            iconData: Icons.account_balance_wallet_outlined,
                             showDropdown: true),
                         AccountsRowWidget(
                             title: '1000 EUR',
-                            iconData: Icons.person,
+                            iconData: Icons.euro,
                             showDropdown: false),
                         AccountsRowWidget(
-                            title: '34 GDP',
-                            iconData: Icons.person,
+                            title: '34 GBP',
+                            iconData: Icons.currency_pound,
                             showDropdown: false),
                       ]),
                     ),
                     SizedBox(
                       height: 15,
                     ),
-                    Text(
-                      'Cards'.tr,
-                      style: AppFonts.styleWithGilroySemiBoldText(
-                          color: Theme.of(context).colorScheme.onSurface,
-                          fSize: FontSizeValue.fontSize16),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Cards'.tr,
+                          style: AppFonts.styleWithGilroySemiBoldText(
+                              color: Theme.of(context).colorScheme.onSurface,
+                              fSize: FontSizeValue.fontSize16),
+                        ),
+
+                        Container(
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: AppColors.kAppColor01.withOpacity(0.2),
+                            borderRadius: BorderRadius.all(Radius.circular(10)),
+                          ),
+                          alignment: Alignment.center,
+                          child: Row(
+                            children: [
+                              Icon(Icons.add,size: 11,color: AppColors.kAppColor01,),
+                              SizedBox(width: 3,),
+                              Text(
+                                'Add Cards'.tr,
+                                style: AppFonts.styleWithGilroyRegularText(
+                                    color: AppColors.kAppColor01,
+                                    fSize: FontSizeValue.fontSize11),
+                              ),
+
+                            ],
+                          )
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: 10,
@@ -170,7 +209,7 @@ class _HomePageState extends State<HomePage> {
                       child: CardsRowWidget(
                           title: 'EUR *2330',
                           subTitle: '8 199.24 EUR',
-                          iconData: Icons.person,
+                          iconData: Icons.wallet_outlined,
                           ),
                     ),
                   ],
