@@ -55,21 +55,21 @@ android {
         }
     }
 
-    flavorDimensions "kasun"
+    flavorDimensions "Kast"
     productFlavors {
         production {
-            dimension "kasun"
-            resValue "string","app_name","kasun"
+            dimension "Kast"
+            resValue "string","app_name","Kast"
             applicationIdSuffix ""
         }
         staging {
-            dimension "kasun"
-            resValue "string","app_name","Stg Kasun"
+            dimension "Kast"
+            resValue "string","app_name","Stg Kast"
             applicationIdSuffix ".stg"
         }
         development {
-            dimension "kasun"
-            resValue "string","app_name","Dev Kasun"
+            dimension "Kast"
+            resValue "string","app_name","Dev Kast"
             applicationIdSuffix ".dev"
         }
     }
