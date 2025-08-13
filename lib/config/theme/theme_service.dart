@@ -45,13 +45,13 @@ class ThemeService {
   bool _loadAutoThemeFromBox() => _box.read(_keyAuto) ?? false;
 
   /// Save isDarkMode to local storage
-  _saveThemeToBox(bool isDarkMode) {
+  void _saveThemeToBox(bool isDarkMode) {
     //_box.write(_key, isDarkMode);
     _box.write(_key, isDarkMode);
   }
 
   /// Save Auto theme mode to local storage
-  _saveAutoThemeToBox(bool isAutoMode) => _box.write(_keyAuto, isAutoMode);
+  Future<void> _saveAutoThemeToBox(bool isAutoMode) => _box.write(_keyAuto, isAutoMode);
 
   /// Switch theme to Auto mode and save to local storage
   void switchAutoTheme() {
