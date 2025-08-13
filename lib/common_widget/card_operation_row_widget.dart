@@ -32,7 +32,7 @@ class CardOperationRowWidget extends StatelessWidget {
           Container(
               padding: EdgeInsets.all(4),
               decoration: BoxDecoration(
-                color: AppColors.kAppColor01.withOpacity(0.2),
+                color: AppColors.kAppColor03.withOpacity(0.2),
                 borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
               child: Padding(
@@ -40,7 +40,7 @@ class CardOperationRowWidget extends StatelessWidget {
                 child: Icon(
                   iconData,
                   size: 18,
-                  color: AppColors.kAppColor01,
+                  color: AppColors.kAppColor03,
                 ),
               )),
           SizedBox(

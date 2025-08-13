@@ -68,13 +68,24 @@ class _CardPageState extends State<CardPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
-                child: Text(
-                  '\$ 18 999.24'.tr,
-                  style: AppFonts.styleWithGilroySemiBoldText(
-                      color: AppColors.kBlack, fSize: FontSizeValue.fontSize20),
-                ),
-              ),
+              Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      '\$',
+                      style: AppFonts.styleWithGilroyBoldText(
+                          color: AppColors.kBlack,
+                          fSize: FontSizeValue.fontSize11),
+                    ),
+
+                    Text(
+                      ' 18 999.24'.tr,
+                      style: AppFonts.styleWithGilroyBoldText(
+                          color: AppColors.kBlack,
+                          fSize: FontSizeValue.fontSize20),
+                    ),
+                  ]),
 
               SizedBox(
                 height: 15,

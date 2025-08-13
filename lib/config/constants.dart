@@ -9,6 +9,7 @@ class FontSizeValue {
   static const fontSize14 = 3.75;
   static const fontSize13 = 3.45;
   static const fontSize11 = 2.88;
+  static const fontSize9 = 2.23;
 }
 
 class DateTimeFormatType {

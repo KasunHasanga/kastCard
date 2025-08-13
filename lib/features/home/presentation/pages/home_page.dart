@@ -48,8 +48,8 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    radius: 20,
-                    backgroundColor: Colors.blueGrey.shade100,
+                    radius: 30,
+                    backgroundColor: AppColors.kAppColor01,
                     child: Container(
                       clipBehavior: Clip.antiAlias,
                       decoration: const BoxDecoration(shape:
@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Icon(
-                    Icons.search,
+                    Icons.search_rounded,
                     color: AppColors.kTextWhite
                   )
                 ],
@@ -79,25 +79,56 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          '18 999.24'.tr,
-                          style: AppFonts.styleWithGilroySemiBoldText(
-                              color: AppColors.kTextWhite,
-                              fSize: FontSizeValue.fontSize20),
-                        ),
+                        Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              '\$',
+                              style: AppFonts.styleWithGilroyRegularText(
+                                  color: AppColors.kTextWhite,
+                                  fSize: FontSizeValue.fontSize11),
+                            ),
+                            SizedBox(width: 3,),
+                            Text(
+                              '18 999.24'.tr,
+                              style: AppFonts.styleWithGilroySemiBoldText(
+                                  color: AppColors.kTextWhite,
+                                  fSize: FontSizeValue.fontSize20),
+                            ),
+                          ],
+                        ), Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              '\£',
+                              style: AppFonts.styleWithGilroyRegularText(
+                                  color: AppColors.kTextWhite,
+                                  fSize: FontSizeValue.fontSize11),
+                            ),
+                            SizedBox(width: 3,),
                         Text(
                           '21'.tr,
                           style: AppFonts.styleWithGilroyRegularText(
                               color: AppColors.kTextWhite,
                               fSize: FontSizeValue.fontSize20),
-                        ),
+                        )],),
                       ],
                     ),
-                    Text(
-                      'USD - Dollar'.tr,
-                      style: AppFonts.styleWithGilroySemiBoldText(
-                          color: AppColors.kTextWhite.withOpacity(0.4),
-                          fSize: FontSizeValue.fontSize20),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 40),
+                          child: Text(
+                            'USD - Dollar'.tr,
+                            textAlign: TextAlign.start,
+                            style: AppFonts.styleWithGilroySemiBoldText(
+                                color: AppColors.kTextWhite.withOpacity(0.4),
+                                fSize: FontSizeValue.fontSize14),
+                          ),
+                        ),
+                      ],
                     ),
                     SizedBox(
                       height: 20,
@@ -119,7 +150,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: AppColors.kShadowColor,
+                  color: AppColors.kBgColor,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30)),
@@ -142,22 +173,30 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: AppColors.kBgColor,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: Offset(0, 3),
+                          ),
+                        ],
+                        color: AppColors.kTextWhite,
                         borderRadius: BorderRadius.all(Radius.circular(15)),
                       ),
                       child: Column(children: [
                         AccountsRowWidget(
                             title: '34234234-3423434-343423-4324',
                             iconData: Icons.account_balance_wallet_outlined,
-                            showDropdown: true),
+                            showDropdown: true,bold: false,),
                         AccountsRowWidget(
                             title: '1000 EUR',
                             iconData: Icons.euro,
-                            showDropdown: false),
+                            showDropdown: false,bold: true,),
                         AccountsRowWidget(
                             title: '34 GBP',
                             iconData: Icons.currency_pound,
-                            showDropdown: false),
+                            showDropdown: false,bold: true),
                       ]),
                     ),
                     SizedBox(
@@ -176,19 +215,19 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           padding: EdgeInsets.all(5),
                           decoration: BoxDecoration(
-                            color: AppColors.kAppColor01.withOpacity(0.2),
+                            color: AppColors.kAppColor03.withOpacity(0.3),
                             borderRadius: BorderRadius.all(Radius.circular(10)),
                           ),
                           alignment: Alignment.center,
                           child: Row(
                             children: [
-                              Icon(Icons.add,size: 11,color: AppColors.kAppColor01,),
+                              Icon(Icons.add,size: 11,color: AppColors.kAppColor03,),
                               SizedBox(width: 3,),
                               Text(
-                                'Add Cards'.tr,
-                                style: AppFonts.styleWithGilroyRegularText(
-                                    color: AppColors.kAppColor01,
-                                    fSize: FontSizeValue.fontSize11),
+                                'ADD CARDS'.tr,
+                                style: AppFonts.styleWithGilroySemiBoldText(
+                                    color: AppColors.kAppColor03,
+                                    fSize: FontSizeValue.fontSize9),
                               ),
 
                             ],
@@ -202,7 +241,15 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       padding: EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: AppColors.kBgColor,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 2,
+                            blurRadius: 5,
+                            offset: Offset(0, 3),
+                          ),
+                        ],
+                        color: AppColors.kTextWhite,
                         borderRadius: BorderRadius.all(Radius.circular(15)),
                       ),
                       alignment: Alignment.center,

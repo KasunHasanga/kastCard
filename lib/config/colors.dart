@@ -18,7 +18,7 @@ extension AppColors on BuildContext {
   static const Color kBgColor = Color(0xFFEFEFF2);
 
   static const Color kAppColor01 = Color(0xFF2a64f4);
-  static const Color kAppColor03 = Color(0xff5175cf);
+  static const Color kAppColor03 = Color(0xff337cf9);
   static const Color kTextWhite = Color(0xFFFFFFFF);
   static const Color kAppColor02 = Colors.grey;
   static const Color kIconBackgroundColor1 = Color(0xFF2a64f4);

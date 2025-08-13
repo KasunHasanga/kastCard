@@ -67,8 +67,10 @@ class _DashboardPageState extends State<DashboardPage> {
       bottomNavigationBar: BottomAppBar(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         height: 60,
-        shadowColor: AppColors.kAppColor02,
-        color: AppColors.kThemeBackgroundLight,
+        elevation:10,
+        surfaceTintColor: AppColors.kTextWhite,
+        shadowColor: Colors.black,
+        color: AppColors.kTextWhite,
         shape: const CircularNotchedRectangle(),
         notchMargin: 5,
         child: Row(
@@ -93,6 +95,7 @@ class _DashboardPageState extends State<DashboardPage> {
               ),
               onPressed: () => _onItemTapped(1),
             ),
+            SizedBox(width: 50,),
             IconButton(
               icon: Icon(
                 Icons.notifications,

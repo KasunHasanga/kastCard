@@ -11,11 +11,13 @@ class AccountsRowWidget extends StatelessWidget {
     this.iconData = Icons.person,
     this.showDropdown = false,
     required this.title,
+    required this.bold,
   });
   final IconData iconData;
 
   final bool showDropdown;
   final String title;
+  final bool bold;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class AccountsRowWidget extends StatelessWidget {
           Container(
               padding: EdgeInsets.all(4),
               decoration: BoxDecoration(
-                color: AppColors.kAppColor01.withOpacity(0.2),
+                color: AppColors.kAppColor03.withOpacity(0.2),
                 borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
               child: Padding(
@@ -34,7 +36,7 @@ class AccountsRowWidget extends StatelessWidget {
                 child: Icon(
                   iconData,
                   size: 18,
-                  color: AppColors.kAppColor01,
+                  color: AppColors.kAppColor03,
                 ),
               )),
           SizedBox(
@@ -42,7 +44,9 @@ class AccountsRowWidget extends StatelessWidget {
           ),
           Text(
             title.tr,
-            style: AppFonts.styleWithGilroyRegularText(
+            style:bold? AppFonts.styleWithGilroySemiBoldText(
+                color: Theme.of(context).colorScheme.onSurface,
+                fSize: FontSizeValue.fontSize14):AppFonts.styleWithGilroyRegularText(
                 color: Theme.of(context).colorScheme.onSurface,
                 fSize: FontSizeValue.fontSize14),
           ),
