@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../config/colors.dart';
 import '../config/constants.dart';
 import '../config/fonts.dart';
-import '../config/theme/theme_service.dart';
+
 import 'package:get/get.dart';
 
 class AccountsRowWidget extends StatelessWidget {

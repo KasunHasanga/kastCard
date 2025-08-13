@@ -1,12 +1,13 @@
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_getx_starter/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 
 import '../../../../config/constants.dart';
 import '../../../../core/shared_preferences.dart';
-import '../pages/sign_in_page.dart';
+
 
 
 class OnBoardingController extends GetxController {
@@ -44,9 +45,9 @@ class OnBoardingController extends GetxController {
       }
 
         if (await storage.containsKey(key: ShardPrefKey.sessionToken)) {
-          Get.off(() => const SignInPage());
+          Get.off(() =>  DashboardPage());
         } else {
-          Get.off(() => const SignInPage());
+          Get.off(() =>  DashboardPage());
         }
 
     });

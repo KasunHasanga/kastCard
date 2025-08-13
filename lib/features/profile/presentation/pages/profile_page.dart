@@ -8,7 +8,6 @@ import '../../../../config/colors.dart';
 import '../../../../config/constants.dart';
 import '../../../../config/fonts.dart';
 import '../../../../config/theme/theme_service.dart';
-import '../../../onboarding/presentation/pages/sign_in_page.dart';
 import '../controller/profile_controller.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -112,7 +111,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 backgroundColor: AppColors.kPrimary,
                 title: "log_out".tr,
                 action: () {
-                  Get.offAndToNamed(SignInPage.routeName);
+
                 },
               ),
               const SizedBox(

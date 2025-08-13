@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../common_widget/accounts_row_widget.dart';
-import '../../../../common_widget/app_bar.dart';
 
 import '../../../../config/colors.dart';
 import '../../../../config/constants.dart';
