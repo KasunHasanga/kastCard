@@ -45,7 +45,7 @@ class AppButton extends StatelessWidget {
         alignment: Alignment.center,
         child: Text(
           title,
-          style: AppFonts.styleWithGilroySemiBoldText( color: titleColor,
+          style: AppFonts.styleWithGilroyRegularText( color: titleColor,
               fSize: fSize),
         ),
       ),

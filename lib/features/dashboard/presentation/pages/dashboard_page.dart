@@ -1,89 +1,140 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../config/colors.dart';
-
 import '../../../home/presentation/pages/home_page.dart';
 import '../../../profile/presentation/pages/profile_page.dart';
 import '../controller/dashboard_controller.dart';
 
 class DashboardPage extends StatefulWidget {
   static const routeName = '/dashboard';
-   int selectedIndex;
-   DashboardPage({super.key, this.selectedIndex = 0});
+  final int selectedIndex;
+  const DashboardPage({super.key, this.selectedIndex = 0});
 
   @override
   State<DashboardPage> createState() => _DashboardPageState();
 }
 
 class _DashboardPageState extends State<DashboardPage> {
+  late int _selectedIndex;
   late DashboardController dashboardController;
+
   @override
   void initState() {
-    if (Get.isRegistered<DashboardController>()) {
-      dashboardController = Get.find();
-    } else {
-      dashboardController = Get.put(DashboardController());
-    }
-
     super.initState();
+    _selectedIndex = widget.selectedIndex;
+    dashboardController = Get.isRegistered<DashboardController>()
+        ? Get.find()
+        : Get.put(DashboardController());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          footerItem('home'.tr, Icons.home_outlined, 0),
-          footerItem('isolation'.tr, Icons.content_paste_outlined, 1),
-          footerItem('Add Page'.tr, Icons.add_card_outlined, 2),
-          footerItem('profile'.tr, Icons.account_circle_outlined, 3),
+      backgroundColor: const Color(0xFFF5F5F5),
+      body: Stack(
+        children: [
+          IndexedStack(
+            index: _selectedIndex,
+            children: const [
+              HomePage(),
+              Center(child: Text('Explore')), // Replace with your Explore page
+              Center(child: Text('Add')), // This is for the add button
+              Center(
+                  child: Text('Favorites')), // Replace with your Favorites page
+              ProfilePage(),
+            ],
+          ),
+
+
         ],
-        currentIndex: widget.selectedIndex,
-        onTap: _onItemTapped,
-        showSelectedLabels: false,
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Theme.of(context).colorScheme.background,
-        fixedColor: Theme.of(context).colorScheme.background,
-        showUnselectedLabels: false,
       ),
-      body: SafeArea(
-        child: IndexedStack(
-          index: widget.selectedIndex,
-          children: [const HomePage(), Container(), Container(), const ProfilePage()],
+      extendBody: true,
+      floatingActionButton:
+          GestureDetector(
+            onTap:()=> _onItemTapped(2),
+              child: Container(height: 60,width: 60,
+                decoration: BoxDecoration(
+
+                  color: AppColors.kAppColor01,
+                  borderRadius: BorderRadius.all(Radius.circular(50)),
+                ),
+                child: const Icon(Icons.credit_card),
+
+              )),
+
+
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        height: 60,
+        shadowColor:AppColors.kAppColor02,
+        color: AppColors.kThemeBackgroundLight,
+        shape: const CircularNotchedRectangle(),
+        notchMargin: 5,
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            IconButton(
+              icon:  Icon(
+                Icons.apps,
+                color:_selectedIndex==0? AppColors.kAppColor01:AppColors.kAppColor02,
+              ),
+              onPressed:()=> _onItemTapped(0),
+            ),
+            IconButton(
+              icon:  Icon(
+                Icons.messenger,
+                color:_selectedIndex==1? AppColors.kAppColor01:AppColors.kAppColor02,
+              ),
+              onPressed:()=> _onItemTapped(1),
+            ),
+            IconButton(
+              icon:  Icon(
+                Icons.notifications,
+                color:_selectedIndex==3? AppColors.kAppColor01:AppColors.kAppColor02,
+
+              ),
+              onPressed:()=> _onItemTapped(3),
+            ),
+            IconButton(
+              icon:  Icon(
+                Icons.account_circle_rounded,
+                color:_selectedIndex==4? AppColors.kAppColor01:AppColors.kAppColor02,
+
+              ),
+              onPressed:()=> _onItemTapped(4),
+            ),
+          ],
         ),
       ),
     );
   }
 
-  footerItem(String tr, IconData icon, int i) {
-    return BottomNavigationBarItem(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      icon: Container(
-        padding: EdgeInsets.zero,
-        margin: EdgeInsets.zero,
-        child:  SizedBox(
-          height: 30,
-          width: 30,
-          child: Icon(
-            icon,
-            color: widget.selectedIndex == i
-                ? AppColors.kPrimary
-                : Theme.of(context).colorScheme.onSurface,
-          ),
-        ),
-      ),
-      label: '',
-    );
-  }
+
 
   void _onItemTapped(int index) {
-    if (index == 0) {
-    } else if (index == 1) {
-    } else if (index == 2) {
-      //shoperController.getMyCoCart();
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    // Add any navigation logic here
+    switch (index) {
+      case 0:
+        // Home
+        break;
+      case 1:
+        // Explore
+        break;
+      case 2:
+        // Add
+        break;
+      case 3:
+        // Favorites
+        break;
+      case 4:
+        // Profile
+        break;
     }
-    widget.selectedIndex = index;
-    setState(() {});
   }
 }
