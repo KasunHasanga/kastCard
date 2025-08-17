@@ -78,7 +78,6 @@ class _CardPageState extends State<CardPage> {
                           color: AppColors.kBlack,
                           fSize: FontSizeValue.fontSize11),
                     ),
-
                     Text(
                       ' 18 999.24'.tr,
                       style: AppFonts.styleWithGilroyBoldText(
@@ -116,24 +115,19 @@ class _CardPageState extends State<CardPage> {
                 padding: 20,
               ),
 
-
               Container(
                 padding: EdgeInsets.all(15),
                 margin: EdgeInsets.only(bottom: 10),
-
                 decoration: BoxDecoration(
                   color: AppColors.kTextWhite,
-
                 ),
-
                 child: Row(
                   children: [
-
                     Expanded(
                       child: GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           setState(() {
-                            isOperationSelected =true;
+                            isOperationSelected = true;
                           });
                         },
                         child: SizedBox(
@@ -142,11 +136,13 @@ class _CardPageState extends State<CardPage> {
                             children: [
                               Text(
                                 "Operations",
-                                style:isOperationSelected?  AppFonts.styleWithGilroySemiBoldText(
-                                    color: AppColors.kAppColor03,
-                                    fSize: FontSizeValue.fontSize18):AppFonts.styleWithGilroyRegularText(
-                                    color: AppColors.kAppColor03,
-                                    fSize: FontSizeValue.fontSize18),
+                                style: isOperationSelected
+                                    ? AppFonts.styleWithGilroySemiBoldText(
+                                        color: AppColors.kAppColor03,
+                                        fSize: FontSizeValue.fontSize18)
+                                    : AppFonts.styleWithGilroyRegularText(
+                                        color: AppColors.kAppColor03,
+                                        fSize: FontSizeValue.fontSize18),
                               ),
                               Positioned(
                                 bottom: 0,
@@ -154,7 +150,9 @@ class _CardPageState extends State<CardPage> {
                                 right: 0,
                                 child: Container(
                                   height: 3,
-                                  color:isOperationSelected? AppColors.kAppColor03:Colors.transparent,
+                                  color: isOperationSelected
+                                      ? AppColors.kAppColor03
+                                      : Colors.transparent,
                                 ),
                               ),
                             ],
@@ -162,12 +160,14 @@ class _CardPageState extends State<CardPage> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 5,),
+                    SizedBox(
+                      width: 5,
+                    ),
                     Expanded(
                       child: GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           setState(() {
-                            isOperationSelected =false;
+                            isOperationSelected = false;
                           });
                         },
                         child: SizedBox(
@@ -176,11 +176,13 @@ class _CardPageState extends State<CardPage> {
                             children: [
                               Text(
                                 "History",
-                                style:!isOperationSelected?  AppFonts.styleWithGilroySemiBoldText(
-                                    color: AppColors.kAppColor03,
-                                    fSize: FontSizeValue.fontSize18):AppFonts.styleWithGilroyRegularText(
-                                    color: AppColors.kAppColor03,
-                                    fSize: FontSizeValue.fontSize18),
+                                style: !isOperationSelected
+                                    ? AppFonts.styleWithGilroySemiBoldText(
+                                        color: AppColors.kAppColor03,
+                                        fSize: FontSizeValue.fontSize18)
+                                    : AppFonts.styleWithGilroyRegularText(
+                                        color: AppColors.kAppColor03,
+                                        fSize: FontSizeValue.fontSize18),
                               ),
                               Positioned(
                                 bottom: 0,
@@ -188,7 +190,9 @@ class _CardPageState extends State<CardPage> {
                                 right: 0,
                                 child: Container(
                                   height: 3,
-                                  color:!isOperationSelected? AppColors.kAppColor03:Colors.transparent, // underline color
+                                  color: !isOperationSelected
+                                      ? AppColors.kAppColor03
+                                      : Colors.transparent, // underline color
                                 ),
                               ),
                             ],
@@ -196,32 +200,34 @@ class _CardPageState extends State<CardPage> {
                         ),
                       ),
                     )
-
                   ],
                 ),
               ),
+
               ///need page view
-              isOperationSelected?    Padding(
-                padding: const EdgeInsets.only(left: 15, right: 15),
-                child: Column(children: [
-                  CardOperationRowWidget(
-                    title: 'Top up Card',
-                    iconData: Icons.credit_card,
-                  ),
-                  CardOperationRowWidget(
-                    title: 'Payments',
-                    iconData: Icons.account_balance_wallet_outlined,
-                  ),
-                  CardOperationRowWidget(
-                    title: 'Card Outlet',
-                    iconData: Icons.arrow_right_alt_outlined,
-                  ),
-                  CardOperationRowWidget(
-                    title: 'Take all the money from card',
-                    iconData: Icons.credit_card,
-                  ),
-                ]),
-              ):Container(),
+              isOperationSelected
+                  ? Padding(
+                      padding: const EdgeInsets.only(left: 15, right: 15),
+                      child: Column(children: [
+                        CardOperationRowWidget(
+                          title: 'Top up Card',
+                          iconData: Icons.credit_card,
+                        ),
+                        CardOperationRowWidget(
+                          title: 'Payments',
+                          iconData: Icons.account_balance_wallet_outlined,
+                        ),
+                        CardOperationRowWidget(
+                          title: 'Card Outlet',
+                          iconData: Icons.arrow_right_alt_outlined,
+                        ),
+                        CardOperationRowWidget(
+                          title: 'Take all the money from card',
+                          iconData: Icons.credit_card,
+                        ),
+                      ]),
+                    )
+                  : Container(),
             ],
           ),
         ));
